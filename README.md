@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+# Rick and Morty React App :heavy_check_mark:
+
+Create a ReactJS app using the Rick & Morty [API](rickandmortyapi.com)
+* [ ] Display the profiles of the characters (either with pagination or showing the first page only).
+* [ ] The profile of a character should include:
+      <ul>
+        <li>Image</li>
+        <li>Character information (name, species, etc).</li>
+        <li>Origin and location information (name, dimension, amount of residents, etc).</li>
+        <li>Name of the chapters the character is featured on.</li>
+      </ul>
+* [ ] The API provides REST and GraphQL versions, for this exercise you should use the REST version.
+* [ ] You are free to use any library/framework or even language. Be ready to explain the rationale for your choices.
+* [ ] The exercise should be submitted in a public repository.
+* [ ]  Running your solution requires no global dependencies (besides node/npm/yarn) and it's possible to run it with only one command (besides yarn/npm install).
+* [ ] Write the code with production standards in mind.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,16 +44,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
