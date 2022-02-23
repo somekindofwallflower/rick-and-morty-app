@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Layout from 'src/Layout/Layout'
-import './App.css';
+import DefaultLayout from 'src/Layout/Layout'
+import './App.scss';
 import {Characters} from "src/services/HomeService";
 import {CharacterType} from "src/models/character.interface";
 
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Layout/>
+      <DefaultLayout/>
     </div>
   );
 }
