@@ -1,8 +1,28 @@
+@import '../assets/variables/variables';
+
 .layout {
     height: 100%;
 
     .header {
-        display: 'flex'
-        alignItems: 'center'
+        display: flex;
+        align-items: center;
+
+        .title {
+            margin: 0;
+        }
+    }
+
+    .content-wrapper {
+        padding: 48px;
+        .content {
+            background-color: $white;
+            padding: 24px;
+            min-height: $content-min-height;
+        }
+    }
+
+
+    .footer {
+        text-align: center;
     }
 }

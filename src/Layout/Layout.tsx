@@ -1,32 +1,38 @@
 import * as React from 'react'
-import "./Layout.css";
-import Footer from "src/components/Footer/Footer"
-import Header from "src/components/Header/Header"
+import "./Layout.scss";
+import {BrowserRouter} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import Home from "src/modules/Home/Home"
-import { BrowserRouter } from "react-router-dom";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {Layout, Typography} from 'antd';
 
-const Layout = () => {
+const { Title, Text } = Typography;
+const {Header, Content, Footer} = Layout;
+
+const DefaultLayout = () => {
     return (
         <BrowserRouter>
-            {/*TODO Create app layout*/}
-            {/*Header*/}
-            <Header/>
-            {/*Body*/}
-            <main>
-                <Routes>
-                    <Route path="/home" element={<Home />} />
-                    {/*No match route*/}
-                    <Route
-                        path="*"
-                        element={<Navigate to="/home" />}
-                    />
-                </Routes>
-            </main>
-            {/*Footer*/}
-            <Footer/>
+            <Layout className="layout">
+                <Header className="header">
+                        <Title className="title" level={3}><Text type="success">Rick and Morty</Text></Title>
+                </Header>
+                <Content className="content-wrapper">
+                    <div className="content">
+                        <Routes>
+                            <Route path="/home" element={<Home/>}/>
+                            {/*No match route*/}
+                            <Route
+                                path="*"
+                                element={<Navigate to="/home"/>}
+                            />
+                        </Routes>
+                    </div>
+                </Content>
+                <Footer className="footer">
+                    Rick and Morty ©2022 Created by somekindofwallflower
+                </Footer>
+            </Layout>
         </BrowserRouter>
     )
 }
 
-export default Layout
+export default DefaultLayout
