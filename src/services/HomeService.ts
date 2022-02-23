@@ -1,6 +1,6 @@
 import { AxiosClient } from "src/api/AxiosClient";
 import { AxiosResponse } from 'axios';
-import { CharacterType } from 'src/models/character.interface';
+import { CharactersType } from 'src/models/characters.interface';
 
 /**
  * @description Destructured axios and got the data response from its response object
@@ -20,5 +20,5 @@ const requests = {
  * @description Created and exported a character object that uses the request object created to handle GET operation using the request objects.
  */
 export const Characters = {
-    getCharacters: (): Promise<CharacterType[]> => requests.get('character'),
+    getCharacters: (): Promise<CharactersType> => requests.get('character'),
 };
