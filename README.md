@@ -9,11 +9,11 @@ Create a ReactJS app using the Rick & Morty [API](rickandmortyapi.com)
         <li>Origin and location information (name, dimension, amount of residents, etc).</li>
         <li>Name of the chapters the character is featured on.</li>
       </ul>
-* [ ] The API provides REST and GraphQL versions, for this exercise you should use the REST version.
-* [ ] You are free to use any library/framework or even language. Be ready to explain the rationale for your choices.
-* [ ] The exercise should be submitted in a public repository.
-* [ ]  Running your solution requires no global dependencies (besides node/npm/yarn) and it's possible to run it with only one command (besides yarn/npm install).
-* [ ] Write the code with production standards in mind.
+* [X] The API provides REST and GraphQL versions, for this exercise you should use the REST version.
+* [X] You are free to use any library/framework or even language. Be ready to explain the rationale for your choices.
+* [X] The exercise should be submitted in a public repository.
+* [X]  Running your solution requires no global dependencies (besides node/npm/yarn) and it's possible to run it with only one command (besides yarn/npm install).
+* [X] Write the code with production standards in mind.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
