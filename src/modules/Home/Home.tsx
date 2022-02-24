@@ -9,15 +9,15 @@ const Home = () => {
 
     // Get characters data
     useEffect( () => {
-           getCharacters();
+        getCharacters();
     }, [])
 
 
     return (
         <div>
-            <Row gutter={[16, 16]} className="pb-8">
+            <Row gutter={[32, 32]} className="pb-8">
                 {characters.map((character:CharacterType) => (
-                    <Col span={4} key={character.id} >
+                    <Col xs={24} sm={8} md={6} lg={3} key={character.id} >
                     <CharacterCard data={character} isLoading={false}></CharacterCard>
                     </Col>
                 ))}
