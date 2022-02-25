@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react'
-import "./Home.css";
-import { Row, Col } from "antd";
+import "./Home.scss";
+import { List, Badge, Card } from 'antd';
 import { useHome } from "src/modules/Home/provider/home.provider"
-import {CharacterType} from "src/models/character.interface"
 import {CharacterCard} from "src/components/characterCard/CharacterCard"
-import {BasicPagination} from "src/components/pagination/Pagination"
+
 const Home = () => {
     const { characters, paginationInfo, getCharacters, onChangeQuery, query } = useHome();
 
@@ -21,19 +20,32 @@ const Home = () => {
         });
     }
 
-
     return (
         <div>
-            <Row>
-                <BasicPagination currentPage={query.page} total={paginationInfo.count} onChange={changePagination}></BasicPagination>
-            </Row>
-            <Row gutter={[32, 32]}>
-                {characters.length ? characters.map((character:CharacterType) => (
-                    <Col xs={24} sm={8} md={6} lg={2} key={character.id} >
-                    <CharacterCard data={character} isLoading={false}></CharacterCard>
-                    </Col>
-                )): "There are no results"}
-            </Row>
+            <List
+                grid={{
+                    gutter: 32,
+                    xs: 1,
+                    sm: 2,
+                    md: 2,
+                    lg: 2,
+                    xl: 3,
+                    xxl: 3,
+                }}
+                pagination={{
+                    current: query.page,
+                    onChange: changePagination,
+                    pageSize: 20,
+                    total: paginationInfo.count,
+                    position: "bottom"
+                }}
+                dataSource={characters}
+                renderItem={item => (
+                        <List.Item>
+                            <CharacterCard data={item} isLoading={false}></CharacterCard>
+                        </List.Item>
+                )}
+            />,
         </div>
     )
 }

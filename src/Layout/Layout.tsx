@@ -14,7 +14,7 @@ const DefaultLayout = () => {
         <BrowserRouter>
             <Layout className="layout">
                 <Header className="header">
-                        <Title className="title" level={3}><Text type="success">Rick and Morty</Text></Title>
+                        <Title className="title" level={3}>Rick and Morty</Title>
                 </Header>
                 <Content className="content-wrapper">
                     <div className="content">
