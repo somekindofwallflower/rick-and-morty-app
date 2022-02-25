@@ -1,12 +1,13 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useCallback} from 'react'
 import "./Characters.scss";
 import { List, Badge, Card } from 'antd';
 import { useCharacters } from "src/modules/Characters/provider/characters.provider"
 import {CharacterCard} from "src/components/characterCard/CharacterCard"
+import { useNavigate } from "react-router-dom";
 
 const Characters = () => {
     const { characters, paginationInfo, getCharacters, onChangeQuery, query } = useCharacters();
-
+    let navigate = useNavigate();
     // Get characters data
     useEffect( () => {
         getCharacters();
@@ -19,6 +20,8 @@ const Characters = () => {
             page: page
         });
     }
+
+    const goToDetails = (id: number) => navigate(`/characters/${id}`, {replace: true});
 
     return (
         <div>
@@ -42,7 +45,7 @@ const Characters = () => {
                 dataSource={characters}
                 renderItem={item => (
                         <List.Item>
-                            <CharacterCard data={item} isLoading={false}></CharacterCard>
+                            <CharacterCard data={item} isLoading={false} goToDetails={goToDetails}></CharacterCard>
                         </List.Item>
                 )}
             />,
