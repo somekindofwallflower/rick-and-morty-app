@@ -12,7 +12,7 @@ const responseBody = (response: AxiosResponse) => response.data;
  * @description  Created a request object to handle GET and returned the destructured axios body created on line 9
  */
 const requests = {
-    get: (url: string, p: { params: Object }) => {
+    get: (url: string, p: { params: Object } | undefined) => {
         return AxiosClient.get(url, p).then(responseBody)
     },
 };
@@ -23,4 +23,7 @@ const requests = {
  */
 export const Characters = {
     getCharacters: (data: any): Promise<CharactersType> => requests.get('character', { params: data }),
+    getCharacter: (id: any): Promise<Object> => requests.get(`character/${id}`, undefined),
+    getCharacterLocation: (data: any): Promise<Object> => requests.get(`location/${data}`, undefined),
+    getCharacterEpisodes: (data: any): Promise<Object> => requests.get(`episode/${data}`, undefined),
 };
