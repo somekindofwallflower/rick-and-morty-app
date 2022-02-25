@@ -30,7 +30,7 @@ export const CharacterCard = ({ data, isLoading = false }: Props) => {
                                 hoverable
                                 cover={<img alt={data.name} src={data.image} />}>
 
-                    <Title level={4}>{data.name}</Title>
+                    <Title level={5}>{data.name}</Title>
                     <Badge color={getStatusColor(data.status)} text={data.status}/> - {data.species}
                 </Card> :
                 <Card>

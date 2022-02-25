@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
-import "./Home.scss";
+import "./Characters.scss";
 import { List, Badge, Card } from 'antd';
-import { useHome } from "src/modules/Home/provider/home.provider"
+import { useCharacters } from "src/modules/Characters/provider/characters.provider"
 import {CharacterCard} from "src/components/characterCard/CharacterCard"
 
-const Home = () => {
-    const { characters, paginationInfo, getCharacters, onChangeQuery, query } = useHome();
+const Characters = () => {
+    const { characters, paginationInfo, getCharacters, onChangeQuery, query } = useCharacters();
 
     // Get characters data
     useEffect( () => {
@@ -27,10 +27,10 @@ const Home = () => {
                     gutter: 32,
                     xs: 1,
                     sm: 2,
-                    md: 2,
-                    lg: 2,
-                    xl: 3,
-                    xxl: 3,
+                    md: 4,
+                    lg: 5,
+                    xl: 5,
+                    xxl: 6,
                 }}
                 pagination={{
                     current: query.page,
@@ -50,4 +50,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Characters

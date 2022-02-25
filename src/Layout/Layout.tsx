@@ -2,9 +2,9 @@ import * as React from 'react'
 import "./Layout.scss";
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route, Navigate} from "react-router-dom";
-import Home from "src/modules/Home/Home"
+import Characters from "src/modules/Characters/Characters"
 import {Layout, Typography} from 'antd';
-import { HomeProvider } from "src/modules/Home/provider/home.provider";
+import { CharactersProvider } from "src/modules/Characters/provider/characters.provider";
 
 const { Title, Text } = Typography;
 const {Header, Content, Footer} = Layout;
@@ -19,11 +19,11 @@ const DefaultLayout = () => {
                 <Content className="content-wrapper">
                     <div className="content">
                         <Routes>
-                            <Route path="/home" element={<HomeProvider><Home/></HomeProvider>}/>
+                            <Route path="/characters" element={<CharactersProvider><Characters/></CharactersProvider>}/>
                             {/*No match route*/}
                             <Route
                                 path="*"
-                                element={<Navigate to="/home"/>}
+                                element={<Navigate to="/characters"/>}
                             />
                         </Routes>
                     </div>

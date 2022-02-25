@@ -1,9 +1,9 @@
 import { Common } from "src/services/Common"
-import {HomeQuery} from "src/domain/home/HomeQuery"
+import {CharactersQuery} from "src/domain/characters/CharactersQuery"
 import {QueryType} from "src/models/query.interface"
 import {PayloadAbstract} from "src/domain/PayloadAbstract"
-const { FILTER_KEYS } = HomeQuery;
-export class HomeMapper {
+const { FILTER_KEYS } = CharactersQuery;
+export class CharactersMapper {
 
     /**
      * @description From Query => Query String
@@ -21,10 +21,10 @@ export class HomeMapper {
      */
     static fromQueryStringToQuery(qs: string | undefined) {
         const query = new URLSearchParams(qs);
-        const homeQueryModel = new HomeQuery();
-        homeQueryModel.page = Number(query.get(FILTER_KEYS.PAGE)) || 1;
-        homeQueryModel.search = query.get(FILTER_KEYS.SEARCH) || undefined;
-        return homeQueryModel;
+        const charactersQueryModel = new CharactersQuery();
+        charactersQueryModel.page = Number(query.get(FILTER_KEYS.PAGE)) || 1;
+        charactersQueryModel.search = query.get(FILTER_KEYS.SEARCH) || undefined;
+        return charactersQueryModel;
     }
 
     static fromQueryToPayload(query: QueryType) {

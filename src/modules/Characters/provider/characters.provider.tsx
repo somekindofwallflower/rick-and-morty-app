@@ -1,13 +1,12 @@
 import React, { useState, createContext, useCallback, useContext} from 'react';
-import {Characters} from "src/services/HomeService";
+import {Characters} from "src/services/CharactersService";
 import {CharacterType} from "src/models/character.interface"
 import {PaginationType} from "src/models/pagination.interface";
 import {QueryType} from "src/models/query.interface";
-import { HomeMapper } from "src/domain/home/Home.mapper"
-import { HomeQuery } from "src/domain/home/HomeQuery";
+import { CharactersMapper } from "src/domain/characters/Characters.mapper"
 
 import {useFilters} from "src/hooks/useFilters"
-interface IHomeContext {
+interface ICharactersContext {
     characters: CharacterType[]
     paginationInfo: PaginationType,
     query: QueryType,
@@ -31,19 +30,19 @@ const defaultState = {
     onChangeQuery: () => {}
     };
 
-export const HomeContext = createContext<IHomeContext>(defaultState);
+export const CharactersContext = createContext<ICharactersContext>(defaultState);
 
-const useProvideHome = () => {
+const useProvideCharacters = () => {
     const [characters, setCharacters] = useState<CharacterType[]>([])
     const [paginationInfo, setPaginationInfo] = useState<PaginationType>(defaultState.paginationInfo)
-    const {query, onChangeQuery} = useFilters({mapper: HomeMapper})
+    const {query, onChangeQuery} = useFilters({mapper: CharactersMapper})
     /**
      * @description Get Characters data
      */
     const getCharacters = useCallback(async () => {
         try {
             console.log("queryyyyyyyyyy", query)
-            const data = await Characters.getCharacters(HomeMapper.fromQueryToPayload(query));
+            const data = await Characters.getCharacters(CharactersMapper.fromQueryToPayload(query));
             setCharacters(data.results);
             setPaginationInfo(data.info);
             return Promise.resolve();
@@ -63,14 +62,14 @@ const useProvideHome = () => {
 }
 
 
-export const HomeProvider = ({ children } : any) => {
-    const home = useProvideHome();
+export const CharactersProvider = ({ children } : any) => {
+    const characters = useProvideCharacters();
     return (
-        <HomeContext.Provider value={home}>
+        <CharactersContext.Provider value={characters}>
             {children}
-        </HomeContext.Provider>
+        </CharactersContext.Provider>
     );
 };
 
 
-export const useHome = () => useContext(HomeContext);
+export const useCharacters = () => useContext(CharactersContext);

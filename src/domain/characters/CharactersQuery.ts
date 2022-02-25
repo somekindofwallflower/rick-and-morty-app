@@ -1,4 +1,4 @@
-export class HomeQuery {
+export class CharactersQuery {
     page: Number = 1;
     search: String | undefined;
 
