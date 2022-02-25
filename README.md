@@ -1,8 +1,8 @@
 # Rick and Morty React App :heavy_check_mark:
 
 Create a ReactJS app using the Rick & Morty [API](rickandmortyapi.com)
-* [ ] Display the profiles of the characters (either with pagination or showing the first page only).
-* [ ] The profile of a character should include:
+* [X] Display the profiles of the characters (either with pagination or showing the first page only).
+* [X] The profile of a character should include:
       <ul>
         <li>Image</li>
         <li>Character information (name, species, etc).</li>
