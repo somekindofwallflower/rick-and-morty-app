@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography } from 'antd';
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import "./BackButton.scss";
+
 const {  Link } = Typography;
 
 interface Props {
@@ -15,7 +17,7 @@ export const BackButton = ({ title } : Props) => {
         navigate("/characters")
     }
     return (
-        <div>
+        <div className="backButton">
             <Link onClick={()=> goBack() }> <ArrowLeftOutlined/> {title}</Link>
         </div>
     )
