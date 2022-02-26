@@ -8,7 +8,7 @@ import {Layout, Typography} from 'antd';
 import { CharactersProvider } from "src/modules/Characters/provider/characters.provider";
 import { CharacterProvider } from "src/modules/Character/provider/character.provider";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const {Header, Content, Footer} = Layout;
 
 const DefaultLayout = () => {

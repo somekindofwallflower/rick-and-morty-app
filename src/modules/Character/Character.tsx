@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useCharacter} from "src/modules/Character/provider/character.provider";
-import {useNavigate} from "react-router-dom";
 import { BackButton } from "src/components/backButton/BackButton";
 import {Card, Row, Col, Badge, Typography, Tag, Skeleton} from 'antd';
 import "./Character.scss"

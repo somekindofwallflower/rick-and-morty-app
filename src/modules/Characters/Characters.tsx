@@ -1,6 +1,6 @@
-import React, {useEffect, useCallback} from 'react'
+import React, {useEffect} from 'react'
 import "./Characters.scss";
-import { List, Badge, Card } from 'antd';
+import { List } from 'antd';
 import { useCharacters } from "src/modules/Characters/provider/characters.provider"
 import {CharacterCard} from "src/components/characterCard/CharacterCard"
 import { useNavigate } from "react-router-dom";
