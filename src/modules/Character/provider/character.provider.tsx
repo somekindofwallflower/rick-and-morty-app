@@ -35,7 +35,7 @@ const useProvideCharacter = () => {
             const characterLocation = await Characters.getCharacterLocation(getIds([character.location?.url]))
             setCharacterLocation(characterLocation);
             const characterEpisodes = await Characters.getCharacterEpisodes(getIds(character.episode));
-            setCharacterEpisodes(characterEpisodes);
+            setCharacterEpisodes(Array.isArray(characterEpisodes) ? characterEpisodes : [characterEpisodes]);
             return Promise.resolve();
         } catch (e) {
             return Promise.reject(e);
