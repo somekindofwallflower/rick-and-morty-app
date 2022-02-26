@@ -16,7 +16,7 @@ Create a ReactJS app using the Rick & Morty [API](rickandmortyapi.com)
 * [X] Write the code with production standards in mind.
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project [DEMO](https://rickandmortysomekindofwallflower.netlify.app/characters).
 
 ## Available Scripts
 
