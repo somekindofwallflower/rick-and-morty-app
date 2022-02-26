@@ -11,7 +11,7 @@ const Characters = () => {
     // Get characters data
     useEffect( () => {
         getCharacters();
-    }, [query])
+    }, [query, getCharacters])
 
 
     const changePagination = (page: number) => {

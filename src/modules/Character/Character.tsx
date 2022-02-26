@@ -12,7 +12,7 @@ const Character = () => {
     // Get characters data
     useEffect( () => {
         getCharacter();
-    }, [])
+    }, [getCharacter])
 
     const getStatusColor = (status: String) => {
         let statusColor = ""
