@@ -12,11 +12,13 @@ const { Title, Text } = Typography;
 const {Header, Content, Footer} = Layout;
 
 const DefaultLayout = () => {
+    const logoPath = require("src/assets/img/logo.png");
     return (
         <BrowserRouter>
             <Layout className="layout">
                 <Header className="header">
-                        <Title className="title" level={3}>Rick and Morty</Title>
+                       <img src={logoPath} alt="" width={30} height={30}/>
+                        <Title className="title" level={3}> Rick and Morty</Title>
                 </Header>
                 <Content className="content-wrapper">
                     <div className="content">
