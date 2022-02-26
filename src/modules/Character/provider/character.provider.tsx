@@ -47,7 +47,7 @@ const useProvideCharacter = () => {
         } finally {
             setPendingData(false);
         }
-    }, []);
+    }, [params.id]);
 
     const getIds = (urls: any) => {
         let ids: Array<number> = [];
