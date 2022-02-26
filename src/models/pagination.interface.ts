@@ -1,6 +1,6 @@
 export interface PaginationType {
     count: number
-    next: string
+    next: string | null
     pages: number
-    prev: number | null
+    prev: string | null
 }
