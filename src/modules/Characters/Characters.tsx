@@ -6,7 +6,7 @@ import {CharacterCard} from "src/components/characterCard/CharacterCard"
 import { useNavigate } from "react-router-dom";
 
 const Characters = () => {
-    const { characters, paginationInfo, getCharacters, onChangeQuery, query } = useCharacters();
+    const { characters, paginationInfo, getCharacters, onChangeQuery, query, pendingData } = useCharacters();
     let navigate = useNavigate();
     // Get characters data
     useEffect( () => {
@@ -45,7 +45,7 @@ const Characters = () => {
                 dataSource={characters}
                 renderItem={item => (
                         <List.Item>
-                            <CharacterCard data={item} isLoading={false} goToDetails={goToDetails}></CharacterCard>
+                            <CharacterCard data={item} isLoading={pendingData} goToDetails={goToDetails}></CharacterCard>
                         </List.Item>
                 )}
             />,

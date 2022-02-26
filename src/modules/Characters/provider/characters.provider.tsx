@@ -11,7 +11,8 @@ interface ICharactersContext {
     paginationInfo: PaginationType,
     query: QueryType,
     getCharacters: Function
-    onChangeQuery: Function
+    onChangeQuery: Function,
+    pendingData: boolean
 }
 
 const defaultState = {
@@ -27,12 +28,14 @@ const defaultState = {
         page: 1,
         search: null
     },
-    onChangeQuery: () => {}
+    onChangeQuery: () => {},
+    pendingData: false
     };
 
 export const CharactersContext = createContext<ICharactersContext>(defaultState);
 
 const useProvideCharacters = () => {
+    const [pendingData, setPendingData] = useState<boolean>(false);
     const [characters, setCharacters] = useState<CharacterType[]>([])
     const [paginationInfo, setPaginationInfo] = useState<PaginationType>(defaultState.paginationInfo)
     const {query, onChangeQuery} = useFilters({mapper: CharactersMapper})
@@ -41,13 +44,16 @@ const useProvideCharacters = () => {
      */
     const getCharacters = useCallback(async () => {
         try {
-            console.log("queryyyyyyyyyy", query)
+            setPendingData(true)
             const data = await Characters.getCharacters(CharactersMapper.fromQueryToPayload(query));
             setCharacters(data.results);
             setPaginationInfo(data.info);
             return Promise.resolve();
         } catch (e) {
+            //TODO Handle error
             return Promise.reject(e);
+        } finally {
+            setPendingData(false);
         }
     }, [query]);
 
@@ -57,6 +63,7 @@ const useProvideCharacters = () => {
        query,
        getCharacters,
        onChangeQuery,
+       pendingData
     };
 
 }

@@ -7,7 +7,8 @@ interface ICharacterContext {
     character: CharacterType|any
     characterEpisodes: any
     characterLocation: any
-    getCharacter: Function
+    getCharacter: Function,
+    pendingData: boolean
 }
 
 const defaultState = {
@@ -15,12 +16,13 @@ const defaultState = {
     characterEpisodes: [],
     characterLocation: {},
     getCharacter: () => {},
+    pendingData: false
 };
 
 export const CharacterContext = createContext<ICharacterContext>(defaultState);
 
 const useProvideCharacter = () => {
-
+    const [pendingData, setPendingData] = useState<boolean>(false);
     const [character, setCharacter] = useState<CharacterType|any>({})
     const [characterLocation, setCharacterLocation] = useState<any>({})
     const [characterEpisodes, setCharacterEpisodes] = useState<any>([])
@@ -29,7 +31,9 @@ const useProvideCharacter = () => {
      * @description Get Characters data
      */
     const getCharacter = useCallback(async () => {
+
         try {
+            setPendingData(true);
             const character:any = await Characters.getCharacter(params.id);
             setCharacter(character);
             const characterLocation = await Characters.getCharacterLocation(getIds([character.location?.url]))
@@ -38,7 +42,10 @@ const useProvideCharacter = () => {
             setCharacterEpisodes(Array.isArray(characterEpisodes) ? characterEpisodes : [characterEpisodes]);
             return Promise.resolve();
         } catch (e) {
+            //TODO Display an popup error message in case of error
             return Promise.reject(e);
+        } finally {
+            setPendingData(false);
         }
     }, []);
 
@@ -52,6 +59,7 @@ const useProvideCharacter = () => {
         characterLocation,
         characterEpisodes,
         getCharacter,
+        pendingData
     };
 
 }
